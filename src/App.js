@@ -6,9 +6,11 @@ import { Users } from "./users";
 
 function App() {
   const [query, setQuery] = useState("");
+  const keys = ["first_name", "last_name", "email"];
+
   const searchFunc = (data) => {
     return data.filter((user) =>
-      user.first_name.toLowerCase().startsWith(query)
+      keys.some((key) => user[key].toLowerCase().startsWith(query))
     );
   };
 
